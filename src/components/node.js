@@ -30,6 +30,11 @@ class TreeNode extends React.Component {
         }
     }
 
+    onCheck(e){
+        const {node} = this.props;
+        this.props.onCheck(node, e.target.checked)
+    }
+
     animations() {
         const {animations, node} = this.props;
 
@@ -93,6 +98,7 @@ class TreeNode extends React.Component {
                         decorators={decorators}
                         node={Object.assign({}, node)}
                         onClick={this.onClick}
+                        onCheck={this.onCheck}
                         style={style}/>
         );
     }

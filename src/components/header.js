@@ -37,6 +37,7 @@ class NodeHeader extends React.Component {
                                   decorators={decorators}
                                   node={node}
                                   onClick={onClick}
+                                  onCheck={onCheck}
                                   style={headerStyles}
                                   terminal={terminal}/>
         );
