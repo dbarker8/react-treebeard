@@ -31,8 +31,8 @@ class TreeNode extends React.Component {
     }
 
     onCheck(e){
-        const {node} = this.props;
-        this.props.onCheck(node, e.target.checked)
+        const {node, onCheck} = this.props;
+        onCheck(node, e.target.checked)
     }
 
     animations() {
@@ -158,7 +158,8 @@ TreeNode.propTypes = {
         PropTypes.object,
         PropTypes.bool
     ]).isRequired,
-    onToggle: PropTypes.func
+    onToggle: PropTypes.func,
+    onCheck: PropTypes.func
 };
 
 export default TreeNode;
