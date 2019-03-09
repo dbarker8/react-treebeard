@@ -19,6 +19,8 @@ class TreeNode extends React.Component {
         super();
 
         this.onClick = this.onClick.bind(this);
+        this.onCheck = this.onCheck.bind(this);
+        this.isChecked = this.isChecked.bind(this);
     }
 
     onClick() {
@@ -30,9 +32,15 @@ class TreeNode extends React.Component {
         }
     }
 
-    onCheck(e){
+    onCheck(n, value, e){
         const {node, onCheck} = this.props;
-        onCheck(node, e.target.checked)
+        onCheck(node, value, e)
+    }
+
+    isChecked(){
+        const {node, isChecked} = this.props;
+        let checked = isChecked(node);
+        return checked
     }
 
     animations() {
@@ -92,6 +100,7 @@ class TreeNode extends React.Component {
 
     renderHeader(decorators, animations) {
         const {node, style} = this.props;
+        let isCheckedValue = this.isChecked();
 
         return (
             <NodeHeader animations={animations}
@@ -99,6 +108,7 @@ class TreeNode extends React.Component {
                         node={Object.assign({}, node)}
                         onClick={this.onClick}
                         onCheck={this.onCheck}
+                        isChecked={isCheckedValue}
                         style={style}/>
         );
     }
@@ -159,7 +169,8 @@ TreeNode.propTypes = {
         PropTypes.bool
     ]).isRequired,
     onToggle: PropTypes.func,
-    onCheck: PropTypes.func
+    onCheck: PropTypes.func,
+    isChecked: PropTypes.func
 };
 
 export default TreeNode;

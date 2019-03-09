@@ -91,6 +91,16 @@ Data that drives the tree view. State-driven effects can be built by manipulatin
 
 Callback function when a node is toggled / clicked. Passes 2 attributes: the data node and it's toggled boolean state.
 
+#### isChecked
+`PropTypes.func`
+
+function that accepts a node as argument, and returns true/false for if the node is checked
+
+#### onCheck
+`PropTypes.func`
+
+called when a checkbox is checked or unchecked, 
+
 #### style
 `PropTypes.object`
 
