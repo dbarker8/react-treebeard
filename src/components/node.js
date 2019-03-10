@@ -114,7 +114,7 @@ class TreeNode extends React.Component {
     }
 
     renderChildren(decorators) {
-        const {animations, decorators: propDecorators, node, style} = this.props;
+        const {animations, decorators: propDecorators, node, style, isChecked, onCheck} = this.props;
 
         if (node.loading) {
             return this.renderLoading(decorators);
@@ -131,6 +131,8 @@ class TreeNode extends React.Component {
                 {children.map((child, index) => <TreeNode {...this._eventBubbles()}
                                                           animations={animations}
                                                           decorators={propDecorators}
+                                                          isChecked={isChecked}
+                                                          onCheck={onCheck}
                                                           key={child.id || index}
                                                           node={child}
                                                           style={style}/>
